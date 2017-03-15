@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OAuthController.cs" />
+    <Compile Include="Controllers\SSO_ApplicationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -243,6 +244,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\OAuth\SelectUser.cshtml" />
+    <Content Include="Views\SSO_Application\Create.cshtml" />
+    <Content Include="Views\SSO_Application\Delete.cshtml" />
+    <Content Include="Views\SSO_Application\Details.cshtml" />
+    <Content Include="Views\SSO_Application\Edit.cshtml" />
+    <Content Include="Views\SSO_Application\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -175,6 +175,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RegisteredApplicationController.cs" />
     <Compile Include="Controllers\SSOController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -251,6 +252,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SSO\Index.cshtml" />
     <Content Include="Views\SSO\CallBack.cshtml" />
+    <Content Include="Views\RegisteredApplication\Create.cshtml" />
+    <Content Include="Views\RegisteredApplication\Delete.cshtml" />
+    <Content Include="Views\RegisteredApplication\Details.cshtml" />
+    <Content Include="Views\RegisteredApplication\Edit.cshtml" />
+    <Content Include="Views\RegisteredApplication\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
