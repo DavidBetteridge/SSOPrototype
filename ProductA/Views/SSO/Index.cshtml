@@ -1,0 +1,36 @@
+﻿@model ProductA.Models.SSO_Application
+@using Microsoft.AspNet.Identity
+
+@section scripts
+{
+    <script>
+
+        // This function generates a random string to use as the state (nouce)
+        var rString = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+        function randomString(length, chars) {
+            var result = '';
+            for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+            return result;
+        }
+
+        $().ready(function () {
+            var baseUrl = '@Model.URL';
+            var state = randomString(30, rString);
+
+            var params = {
+                state: state,
+                scope: '@User.Identity.GetUserName()',
+                client_id: '@Model.ClientID',
+                redirect_uri: window.location.protocol + "//" + window.location.host + '@Url.Content("~/SSO/Callback")',
+                response_type: "code"
+            };
+
+            var url = baseUrl + "/oauth/authorize?" + $.param(params);
+            sessionStorage.setItem('state', state);
+            sessionStorage.setItem('product-id', '@Model.ID');
+            window.location.replace(url);
+        });
+        
+        
+    </script>
+}

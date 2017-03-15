@@ -1,0 +1,37 @@
+﻿@model ProductA.ViewModels.SSO_Response
+
+@section scripts
+{
+    <script>
+
+        $().ready(function () {
+
+            // Check the state is what we originally sent.   This is an important check as otherwise
+            // we don't know that this request come from us originally.
+            var expectedState = sessionStorage.getItem('state');
+            if (expectedState !== '@Model.State') {
+                alert("Invalid state!!!");
+                return;
+            }
+
+            // Ask our server to get our access token
+            var baseURL = '@Url.Action("tokenRequest")';
+            var params = {
+                productID: sessionStorage.getItem('product-id'),
+                state: '@Model.State',
+                authorisationCode: '@Model.AuthorisationCode'
+            };
+            var url = baseURL + "?" + $.param(params);
+
+            $.get(url, function (data) {
+                // Redirect to the other product
+                window.location.replace(data);
+            });
+
+        });
+
+
+    </script>
+
+}
+
