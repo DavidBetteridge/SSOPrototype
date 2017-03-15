@@ -1,7 +1,11 @@
 ﻿@model ProductA.ViewModels.SSO_Response
+@{Layout = null;}
 
-@section scripts
-{
+<html>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+
+
     <script>
 
         $().ready(function () {
@@ -32,6 +36,6 @@
 
 
     </script>
-
-}
+</body>
+</html>
 

@@ -1,8 +1,12 @@
 ﻿@model ProductA.Models.SSO_Application
 @using Microsoft.AspNet.Identity
 
-@section scripts
-{
+@{Layout = null;}
+
+<html>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+
     <script>
 
         // This function generates a random string to use as the state (nouce)
@@ -30,7 +34,8 @@
             sessionStorage.setItem('product-id', '@Model.ID');
             window.location.replace(url);
         });
-        
-        
+
+
     </script>
-}
+</body>
+</html>
