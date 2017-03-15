@@ -16,6 +16,11 @@ namespace ProductA.Controllers
     {
         private ProductDB db = new ProductDB();
 
+        public ActionResult Render()
+        {
+            return View(db.SSO_Applications.Where(a => !a.IsServer).ToList());
+        }
+
         // GET: RegisteredApplication
         public async Task<ActionResult> Index()
         {

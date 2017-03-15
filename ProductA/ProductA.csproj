@@ -257,6 +257,7 @@
     <Content Include="Views\RegisteredApplication\Details.cshtml" />
     <Content Include="Views\RegisteredApplication\Edit.cshtml" />
     <Content Include="Views\RegisteredApplication\Index.cshtml" />
+    <Content Include="Views\RegisteredApplication\Render.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

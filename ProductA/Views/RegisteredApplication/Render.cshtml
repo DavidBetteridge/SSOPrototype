@@ -1,0 +1,11 @@
+﻿@model IEnumerable<ProductA.Models.SSO_Application>
+@{
+    Layout = null;
+}
+
+@foreach (var app in Model)
+{
+    <li>
+        @Html.ActionLink(app.Name, "Index", "SSO", routeValues: new { productID = app.ID }, htmlAttributes: new { title = app.Name, target = "_blank" })
+    </li>
+}
