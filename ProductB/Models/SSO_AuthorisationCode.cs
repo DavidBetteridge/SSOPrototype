@@ -21,5 +21,7 @@ namespace ProductB.Models
 
         public string LocalUserID { get; set; }
 
+        public bool ExistingLink { get; set; }
+
     }
 }

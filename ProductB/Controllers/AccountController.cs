@@ -90,34 +90,10 @@ namespace ProductB.Controllers
                     return View(model);
             }
 
-        }
-
-        /// <summary>
-        /// Final part of the oAuth sign.   There is a route which redirects OAuth/Signin to here
-        /// </summary>
-        /// <param name="token"></param>
-        /// <returns></returns>
-        public async Task<ActionResult> SignInFromAccessCode(string token)
-        {
-            using (var ctx = new ProductDB())
-            {
-                var authCode = ctx.SSO_AccessTokens.SingleOrDefault(ac => ac.Token == token);
-                if (authCode == null) throw new Exception("Invalid access code");
-
-                //TODO: Check the token hasn't expired
-
-                var user = await UserManager.FindByNameAsync(authCode.LocalUserID);
-
-                if (user != null)
-                {
-                    await SignInManager.SignInAsync(user, true, true);
-                }
-
-                return RedirectToLocal("");
-            }
-
 
         }
+
+
 
         //
         // GET: /Account/VerifyCode
