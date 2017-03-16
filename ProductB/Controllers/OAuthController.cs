@@ -183,7 +183,7 @@ namespace ProductB.Controllers
                 return Json(new SSO_TokenResponse()
                 {
                     access_token = accessToken.Token,
-                    expires_id = "",
+                    expires_id = TokenExpiryDate(accessToken).Subtract(DateTime.Now).TotalSeconds.ToString(),
                     refresh_token = "",
                     scope = authCode.LocalUserID,
                     info = "",
@@ -194,6 +194,8 @@ namespace ProductB.Controllers
             }
         }
 
+
+        private DateTime TokenExpiryDate(SSO_AccessToken token) => token.Timestamp.AddDays(1);
 
         /// <summary>
         /// Final part of the oAuth sign.   There is a route which redirects OAuth/Signin to here
@@ -208,7 +210,8 @@ namespace ProductB.Controllers
                 var authCode = ctx.SSO_AccessTokens.SingleOrDefault(ac => ac.Token == token);
                 if (authCode == null) throw new Exception("Invalid access code");
 
-                //TODO: Check the token hasn't expired
+                //Check the token hasn't expired
+                if (TokenExpiryDate(authCode) < DateTime.Now) throw new Exception("Token has expired");
 
                 var user = await UserManager.FindByNameAsync(authCode.LocalUserID);
 

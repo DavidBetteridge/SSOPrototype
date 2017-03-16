@@ -28,13 +28,10 @@ This is based on the OAuth "Authorization Code" grant type.  With a couple of im
 
 1. The scope instead of being set to the name of the resource the client wishes to access,  is set to the user's name in product A
 
-2. In the final stage (Access Token Request) the server also passed the ID of the logged in user to the other server for additional verification
+2. In the final stage (Access Token Request) the server is also passed the ID of the logged in user to the other server for additional verification
 
 * It is (very) important that ClientSecret is not exposed.
 
-## Not Implemented
-
-* The access token does not currently expire
 
 
   
