@@ -36,6 +36,5 @@ This is based on the OAuth "Authorization Code" grant type.  With a couple of im
 
 * The access token does not currently expire
 
-* A user should be able to remove their link from another product.  This just means deleting the record from the SSO_ApplicationUsers table
 
   
